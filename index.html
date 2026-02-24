@@ -1,57 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, inicial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Meu Currículo 2026</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-slate-100 p-5 font-sans">
-  <div class="container mx-auto max-w-md bg-white p6 rounded-x1 shadow-1g no-print">
-    <h2 class="text-x1 font-bold text-center text-slate-800 mb-4"></h2>
+  <div class="container mx-auto max-w-md bg-white p-6 rounded-xl shadow-lg no-print">
+    <h2 class="text-xl font-bold text-center text-slate-800 mb-4">Gerador de Currículo</h2>
     <div class="space-y-3">
-            <input type="text" id="n" placeholder="Nome Completo" class="w-full p-2 border rounded-md outline-blue-500">
-            <input type="text" id="c" placeholder="Objetivo Profissional" class="w-full p-2 border rounded-md outline-blue-500">
-            <input type="text" id="e" placeholder="Contato / LinkedIn" class="w-full p-2 border rounded-md outline-blue-500">
-            <textarea id="h" placeholder="Hard Skills (Técnicas)" class="w-full p-2 border rounded-md outline-blue-500 h-20 resize-none"></textarea>
-            <textarea id="s" placeholder="Soft Skills (Comportamentais)" class="w-full p-2 border rounded-md outline-blue-500 h-20 resize-none"></textarea>
-            <textarea id="f" placeholder="Formação Acadêmica" class="w-full p-2 border rounded-md outline-blue-500 h-20 resize-none"></textarea>
-            <textarea id="p" placeholder="Projetos e Voluntariado" class="w-full p-2 border rounded-md outline-blue-500 h-20 resize-none"></textarea>
-            <input type="text" id="i" placeholder="Idiomas" class="w-full p-2 border rounded-md outline-blue-500">
-            <button onclick="window.print()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-md transition">
-                🚀 Gerar PDF Profissional
-            </button>
-        </div>
+      <input type="text" id="n" placeholder="Nome Completo" class="w-full p-2 border rounded-md outline-blue-500">
+      <input type="text" id="c" placeholder="Objetivo Profissional" class="w-full p-2 border rounded-md outline-blue-500">
+      <input type="text" id="e" placeholder="Contato / LinkedIn" class="w-full p-2 border rounded-md outline-blue-500">
+      <textarea id="h" placeholder="Hard Skills (Técnicas)" class="w-full p-2 border rounded-md outline-blue-500 h-20 resize-none"></textarea>
+      <textarea id="s" placeholder="Soft Skills (Comportamentais)" class="w-full p-2 border rounded-md outline-blue-500 h-20 resize-none"></textarea>
+      <textarea id="f" placeholder="Formação Acadêmica" class="w-full p-2 border rounded-md outline-blue-500 h-20 resize-none"></textarea>
+      <textarea id="p" placeholder="Projetos e Voluntariado" class="w-full p-2 border rounded-md outline-blue-500 h-20 resize-none"></textarea>
+      <input type="text" id="i" placeholder="Idiomas" class="w-full p-2 border rounded-md outline-blue-500">
+      <button id="printBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-md transition">
+        🚀 Gerar PDF Profissional
+      </button>
+    </div>
   </div>
-</body>
 
-<div id="cv" class="cv-page bg-white mx-auto shadow-2x1">
- <div class="text-center border-b-4 border-blue-600 pb-4 mb-6">
-    <h1 id="out-n" class="text-4x1 font-black text-slate-800 uppercase leading-none"></h1>
-    <p id="out-n" class="text-lg font-bold text-slate-500 mt-2 uppercase tracking-widest"></p>
-    <p id="out-e" class="text-sm text-slate-600 mt-2"></p>
- </div>
- <div class="grid grid-cols-2 gap-8 mb-6">
-    <section>
-      <h3 class="font-bold text-blue-600 border-b mb-2 uppercase text-sm">Hard Skills</h3>
-     <p id="out-h" class="text-sm leading-relaxed whitespace-pre-line"></p>
+  <!-- preview -->
+  <div id="cv" class="cv-page bg-white mx-auto shadow-2xl p-8 max-w-2xl hidden">
+    <div class="text-center border-b-4 border-blue-600 pb-4 mb-6">
+      <h1 id="out-n" class="text-4xl font-black text-slate-800 uppercase leading-none"></h1>
+      <p id="out-c" class="text-lg font-bold text-slate-500 mt-2 uppercase tracking-widest"></p>
+      <p id="out-e" class="text-sm text-slate-600 mt-2"></p>
+    </div>
+    <div class="grid grid-cols-2 gap-8 mb-6">
+      <section>
+        <h3 class="font-bold text-blue-600 border-b mb-2 uppercase text-sm">Hard Skills</h3>
+        <p id="out-h" class="text-sm leading-relaxed whitespace-pre-line"></p>
+      </section>
+      <section>
+        <h3 class="font-bold text-blue-600 border-b mb-2 uppercase text-sm">Soft Skills</h3>
+        <p id="out-s" class="text-sm leading-relaxed whitespace-pre-line"></p>
+      </section>
+    </div>
+    <section class="mb-6">
+      <h3 class="font-bold text-blue-600 border-b mb-2 uppercase text-sm">Formação Acadêmica</h3>
+      <p id="out-f" class="text-sm leading-relaxed whitespace-pre-line"></p>
     </section>
-    <section>
-      <h3 class="font-bold text-blue-600 border-b mb-2 uppercase text-sm">Soft Skills</h3>
-      <p id="out-s" class="text-sm leading-relaxed whitespace-pre-line"></p>
+    <section class="mb-6">
+      <h3 class="font-bold text-blue-600 border-b mb-2 uppercase text-sm">Projetos e Voluntariado</h3>
+      <p id="out-p" class="text-sm leading-relaxed whitespace-pre-line"></p>
     </section>
- </div>
-</div>
-</div>
-<section class="mb-6">
-    <h3 class="font-bold text-blue-600 border-b mb-2 uppercase text-sm">Formação Acadêmica</h3>
-    <p id="out-f" class="text-sm leading-relaxed whitespace-pre-line"></P>
-</section>
-<section class="mb-6">
-    <h3 class="font-bold text-blue-600 border-b mb-2 uppercase text-sm">Projetos e Voluntariado</h3>
-    <p id="out-p" class="text-sm leading-relaxed whitespace-pre-line"></P>
-</section>
-<section class="mb-6">
-    <h3 class="font-bold text-blue-600 border-b mb-2 uppercase text-sm">Idiomas</h3>
-    <p id="out-i" class="text-sm leading-relaxed whitespace-pre-line"></P>
-</section>
-</div>
+    <section class="mb-6">
+      <h3 class="font-bold text-blue-600 border-b mb-2 uppercase text-sm">Idiomas</h3>
+      <p id="out-i" class="text-sm leading-relaxed whitespace-pre-line"></p>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

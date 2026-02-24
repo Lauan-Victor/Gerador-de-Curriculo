@@ -1,0 +1,10 @@
+/* utility for hiding form when printing */
+.no-print {
+  display: block;
+}
+
+@media print {
+  .no-print { display: none !important; }
+  body { background: white !important; }
+  .cv-page { box-shadow: none !important; }
+}
